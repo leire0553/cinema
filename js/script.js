@@ -6,7 +6,7 @@ $("#entrar").click(function () {
     window.location.href = "eventos.html";
 
 });
-
+// si no estas logeado te redirige a login.html
 if (window.location.pathname.includes("eventos.html")) {
 
     if (localStorage.getItem("logueado") != "si") {
@@ -33,13 +33,26 @@ $(document).on("click", ".borrar", function () {
     $(this).parent().remove();
 
 });
-//reordenar
-$("#misEventos").sortable();
+
 
 //widgets datapicker y tootltip en formualrio de contacto
 $("#fecha").datepicker();
 $("#nombre").tooltip();
 
+//reordenar
+$("#misEventos").sortable();
+
+//contacto autocompletado
+let temas = [
+    "Información General",
+    "Duda sobre Eventos",
+    "Problema con la Tienda",
+    "Sugerencia de Película"
+];
+
+$("#asunto").autocomplete({
+    source: temas
+});
 
 
 //identificacion usuario
@@ -64,17 +77,3 @@ $(".addCarrito").click(function () {
 });
 
 
-
-$("#fecha").datepicker();
-
-//contacto
-let temas = [
-    "Información General",
-    "Duda sobre Eventos",
-    "Problema con la Tienda",
-    "Sugerencia de Película"
-];
-
-$("#asunto").autocomplete({
-    source: temas
-});

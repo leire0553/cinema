@@ -1,13 +1,4 @@
-$(document).ready(function(){
-
-$("#btnLogin").click(function () {
-
-    if ($("#user").val() == "admin" && $("#pass").val() == "1234") {
-        $(".zonaUsuario").show();
-        $(".login").hide();
-    }
-
-});
+//boton para login
 
 $("#entrar").click(function () {
 
@@ -27,19 +18,14 @@ if (window.location.pathname.includes("eventos.html")) {
     }
 
 }
-
+//eventos
 //añadir eventos
-
 $(".apuntar").click(function () {
-
-    let nombreEvento = $(this).siblings("p").text();
-
-    $("#misEventos").append(
-        "<li>" + nombreEvento +
-        " <button class='borrar'>X</button></li>"
-    );
-
+    let evento = $(this).parent().text();
+    $("#misEventos").append("<li>" + evento + " <button class='borrar'>X</button></li>");
 });
+
+
 //borrar eventos
 
 $(document).on("click", ".borrar", function () {
@@ -50,16 +36,10 @@ $(document).on("click", ".borrar", function () {
 //reordenar
 $("#misEventos").sortable();
 
-//widgets
+//widgets datapicker y tootltip en formualrio de contacto
 $("#fecha").datepicker();
-$("#nombre").tooltip({ content: "Introduce tu nombre" });
+$("#nombre").tooltip();
 
-
-//eventos
-$(".apuntarse").click(function () {
-    let evento = $(this).parent().text();
-    $("#misEventos").append("<li>" + evento + " <button class='borrar'>X</button></li>");
-});
 
 
 //identificacion usuario
@@ -70,16 +50,31 @@ $("#formLogin").submit(function (e) {
 
 
 //carrito
-let total = localStorage.getItem("carrito") || 0;
+let total = parseInt(localStorage.getItem("carrito")) || 0;
+$("#carrito").text(total);
 
 $(".addCarrito").click(function () {
+
     let cantidad = parseInt($(this).siblings("input").val());
     total += cantidad;
+
+    localStorage.setItem("carrito", total);
+
     $("#carrito").text(total);
 });
 
 
-$(document).tooltip();
+
 $("#fecha").datepicker();
 
+//contacto
+let temas = [
+    "Información General",
+    "Duda sobre Eventos",
+    "Problema con la Tienda",
+    "Sugerencia de Película"
+];
+
+$("#asunto").autocomplete({
+    source: temas
 });

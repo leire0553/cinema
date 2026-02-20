@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Proyecto 2ev - Leire Cortez</title>
+    <title>Contacto - Cinema</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -15,7 +16,8 @@
 
         <nav class="menu-superior">
             <div class="logo">
-                <img src="img/cinema-sf.png" alt="Logo de cinema">
+                <a href="index.html"><img src="img/cinema-sf.png" alt="Logo de cinema"></a>
+
 
             </div>
 
@@ -37,41 +39,37 @@
 
     </header>
     <main>
-<section class="contacto-container">
-        <h1>Contacto</h1>
+        <section class="contacto-container">
+            <h1>Contacto</h1>
 
-        <p>¿Tienes dudas sobre un evento o quieres sugerir una película de terror? Escríbenos.</p>
-        <form action="#" id="login">
-            <label>Escribe tu nombre</label>
+            <p>¿Tienes dudas sobre un evento o quieres sugerir una película de terror? Escríbenos.</p>
+            <form action="#" id="login">
+                <label>Escribe tu nombre</label>
 
-            <input type="text" id="nombre" placeholder="Nombre">
-            <label>Tu correo</label>
+                <input type="text" id="nombre" placeholder="Nombre" title="Introduce tu nombre completo">
+                <label>Tu correo</label>
 
-            <input type="email" id="email" placeholder="Email">
-            <label>Tu teléfono de contacto</label>
-            
-            <input type="number" id="number" placeholder="Teléfono">
-            <div class="campo">
-                <label for="asunto">Asunto</label> <br>
-                <select id="asunto">
-                    <option value="info">Información General</option>
-                    <option value="eventos">Duda sobre Eventos</option>
-                    <option value="tienda">Problema con la Tienda</option>
-                    <option value="sugerencia">Sugerencia de Película</option>
-                </select>
+                <input type="email" id="email" placeholder="Email">
+                <label>Tu teléfono de contacto</label>
+
+                <input type="tel" pattern="[0-9]{9}" placeholder="600000000">
+                <div class="campo">
+                    <label for="asunto">Asunto</label> <br>
+
+                    <input type="text" id="asunto" placeholder="Escribe el asunto">
+                </div>
+                <label>Escribe un mensaje</label>
+                <textarea name="mensaje" id="mensaje"></textarea>
+                <button>Enviar</button>
+
+            </form>
+
+            <div class="info-adicional">
+                <p><strong>Ubicación:</strong> Calle del Terror, 13, Zaragoza.</p>
+                <p><strong>Horario:</strong> Lunes a Domingo - 17:00 a 00:00</p>
             </div>
-            <label>Escribe un mensaje</label>
-            <textarea name="mensaje" id="mensaje"></textarea>
-            <button>Enviar</button>
 
-        </form>
-
-        <div class="info-adicional">
-            <p><strong>Ubicación:</strong> Calle del Terror, 13, Madrid.</p>
-            <p><strong>Horario:</strong> Lunes a Domingo - 17:00 a 00:00</p>
-        </div>
-
-    </section>
+        </section>
     </main>
     <footer>
 
@@ -86,7 +84,7 @@
                 <h4>Navegación</h4>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="peliculas.html">Películas</a></li>
+                    <li><a href="cartelera.html">Películas</a></li>
                     <li><a href="eventos.html">Eventos</a></li>
                     <li><a href="tienda.html">Tienda</a></li>
                 </ul>
@@ -105,6 +103,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
     <script src="js/script.js"></script>
 </body>
 
